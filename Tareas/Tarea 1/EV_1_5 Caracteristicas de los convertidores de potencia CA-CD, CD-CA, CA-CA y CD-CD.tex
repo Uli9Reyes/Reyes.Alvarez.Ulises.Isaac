@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\author{Ulises Isaac Reyes Alvarez}
+\title{Convertidores de potencia}
+
+\begin{document}
+\maketitle
+\section{Convertidor CA-CD}
+\subsection{Controladas} 
+Los circuitos rectificadores se puedes sustituir total o parcial de los diodos por tiristores, obteniendo un sistema de rectificador controlado.\\
+Para la conversión de corriente alterna a corriente continua,una de ellas es el puente de diodos, que entrega un voltaje continuo, este voltaje no es regulado, con la ayuda de un regulador reductor-elevador se obtiene un voltaje de CD regulado.\\
+
+\subsection{No controladas}
+El rectificador monofásico de media onda es un circuito que convierte una corriente alterna a corriente continua. \\
+Conduce durante el medio ciclo positivo del voltaje de entrada de Vent, el cual aparece en la carga y durante el medio ciclo negativo el diodo está en bloqueo y el voltaje en la carga es cero.
+
+\section{Convertidor CD-CA}
+\subsection{Según número de fases}
+\subsubsection{Monofásico}
+\subsubsection*{Puente completo}
+Esta formado por 4 interruptores de potencia totalmente controlados, típicamente transistores mosfet o IBGTs.\\
+La salida de tensión de salida Vc puede ser +Vcc, -Vcc o 0, dependiendo del estado de los interruptores.\\
+\subsubsection*{Medio puente}
+Tensión máxima que deben soportar los interruptores de potencia: Ub, mas las sobretensiones que originen los circuitos prácticos.\\
+Tensión máxima en la carga Ub/2, por tanto para igual potencia corrientes mas elevadas que en el puente completo.
+Topología adecuada para tensión en la batería alta y potencia en la carga media. \\
+\subsubsection*{Push- Pull}
+Se debe de tomar en cuenta la relación de espiras entre cada uno de los primarios (teniendo en cuenta que esta en toma media) y el secundario. \\
+Tensión máxima que deben soportar los interruptores de potencia: Ub, mas las sobretensiones que originen los circuitos prácticos, que en este caso serán mayores debido a la inductancia de dispersión del transformador.
+Tensión máxima en la carga Ub.\\ 
+El transformador de toma media tiene un factor de utilización bajo en el primario y empeorará bastante el rendimiento de los circuitos prácticos . No es aconsejable  utilizar esta topología para potencias de más de 10kVA.\\ 
+Solo utiliza dos interruptores de potencia y ambos están referidos  a masa y por tanto su gobierno es sencillo.
+
+\subsubsection{Trifásico}
+Tres transistores se mantienen  activos durante cada instante de tiempo. Cuando el transistor Q1 está activado, la terminal a se conecta con la terminal positiva del voltaje de entrada. Cuando se activa el transistor Q4, la terminal a se lleva a la terminal negativa de la fuente de cd. En cada ciclo existen seis modos de operación, cuya duración es de 60º.\\
+Los transistores se numeran según su secuencia de excitación (por ejemplo 123, 234, 345, 456, 561, 612). El valor y el anchoe los pulsos para activar los transistores para la conducción a 180º. La carga puede conectarse en delta o estrella.
+
+\subsection{Según forma de onda de salida}
+\subsubsection{Cuadrada}
+En éste caso los interruptores conectan la carga a + VCC cuando S1 y S2 están cerrados (estando S3 y S4 abiertos) y a - VCC cuando S3 y S4 están cerrados (estando S1 y S2 abiertos). La conmutación periódica de la tensión de la carga entre + VCC y - VCC genera en la carga una tensión con forma de onda cuadrada. Aunque esta salida alterna no es senoidal pura, puede ser una onda de alterna adecuada para algunas aplicaciones.\\
+Éste tipo de modulación no permite el control de la amplitud ni del valor eficaz de la tensión de salida, la cual podría variarse solamente si la tensión de entrada VCC fuese ajustable.
+
+\subsubsection{Cuasi cuadrada}
+Cuando se desea tensión positiva en la carga se mantienen S1 y S2 conduciendo (S3 y S4 abiertos). La tensión negativa se obtiene de forma complementaria (S3 y S4 cerrados y S1 y S2 abiertos). Y, como ya se ha comentado, los intervalos de tensión nula se obtienen cerrando simultáneamente los interruptores S1 y S3 manteniendo S2 y S4 abiertos o bien cerrando S2 y S4 mientras S1 y S3 se mantienen abiertos. Otra forma de obtener tensión nula a la salida es manteniendo todos los interruptores abiertos durante el intervalo de tiempo deseado.
+
+\section{Convertidor CA-CA}
+\subsection{Ciclo convertidor}
+Un inversor puede regular una tensión en amplitud y en frecuencia sin que la entrada limita la frecuencia superior.\\
+La regeneración de energía es natural en un ciclo convertidor, mientras que en un inversor supone una gran complejidad en el control.\\
+Realiza la regulación en una sola etapa, mientras que en un inversor necesita de una etapa previa de rectificación.
+
+\section{Convertidor CD-CD}
+\subsection{Reductores}
+El voltaje de entrada es mayor al voltaje de salida de ahí el nombre de reductor, este circuito funciona de dos modos, el primero empieza en el momento que el transistor se activa en t=0 al circuito por medio del control. La corriente de entrada fluye y carga a través del inductor L, del capacitor C y la resistencia R. El segundo modo es desconectado, el diodo Dn conduce debido a la corriente que se descarga en el inductor con lo que la corriente fluye a través del inductor L, el capacitor C y resistencia R. 
+
+\subsection{Elevadores}
+El voltaje de entrada es menor que el voltaje de salida, de igual forma que en el reductor, este circuito trabaja en dos modos, el primero es cuando se activa el transistor en t=0, así la corriente fluye a través del inductor L y el transistor Q. El modo 2 se desconecta el transistor y la corriente que estaba fluyendo el inductor L, el capacitor C, el diodo Dn y la carga. 
+
+\subsection{Cúk}
+Entrega un voltaje de salida menor o mayor que el voltaje de entrada, pero la polaridad del Vsal es opuesta a la polaridad del voltaje de entrada. También trabaja de dos modos, en el modo 1 se activa el transistor Q,la corriente se eleva en en inductor L1,simultáneamente, el voltaje del capacitor polariza inversamente al diodo Dn y lo desactiva, descargando su energía en C1, C2, L2 y la carga. En el modo 2 se desconecta el transistor cargándose el capacitor C1 a partir del suministro de entrada y la energía almacenada en el inductor L2 se transfiere a la carga, de esa forma el diodo Dn y el transistor Q funcionan en una conmutación síncrona.  
+
+\subsection{Reductores - Elevadores}
+El voltaje de salida puede ser menor o mayor que el voltaje de entrada, y de igual forma que en el cúk, la polaridad del Vsal es inversa al Vent, por esta razón se conoce como "regulador inversor".\\
+De igual forma trabaja en dos modos, en el primero el transistor Q se activa y el diodo Dn bloquea el paso de la corriente. De esa forma la corriente fluye a través del inductor L y el transistor Q. En el segundo modo se desactiva el transistor y la energía en el inductor se descarga en el capacitor C, en el diodo Dn y la carga. 
+
+
+\end{document}
