@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{Materiales}{}% 2
+\BOOKMARK [1][-]{section.3}{Desarrollo}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Primero armaremos el siguiente circuito tanto a alguna aplicaci\363n para simularlo como en protoboard para probar que funciona f\355sicamente y lo realiza correctamente.}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Armamos el circuito en Proteus quedando:}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Una vez armado el circuito vamos a enchufar todo como corresponde teniendo en cuenta que debemos conectar la clavija de manera correcta, sabiendo cual es el agujero del contacto positivo o que tiene mas voltaje, esto se logra con el mult\355metro, midiendo voltaje colocando las puntas dentro del contacto.}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Mueve el potenci\363metro hasta el tope y comienza a subirle al potenci\363metro y observa lo que sucede.}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Conclusiones}{}% 8
+\BOOKMARK [1][-]{section.5}{Referencias bibliogr\341ficas}{}% 9
