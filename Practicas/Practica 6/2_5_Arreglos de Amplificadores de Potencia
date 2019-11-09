@@ -1,0 +1,500 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Ulises Isaac Reyes Alvarez\\Luis Osvaldo Cervantes Mart\'inez\\4.B Ing. Mecatrónica\\Mtro. Carlos Enrique Morán Garabito\\"Sistemas Electrónicos de Interfaz"\\ Sep - Dic 2019}
+\title{Arreglos de Amplificadores de Potencia}
+
+\begin{document}
+\maketitle
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=2]{Pictures/UPZMG.png}
+\end{figure}
+
+\newpage
+\section{Introducción}
+\subsection*{Objetivos}
+\begin{itemize}
+\item Identificar los distintos Amplificadores Operacionales.
+\item Observar las ondas generadas por medio de diferentes circuitos y conocer sus características de dichas ondas.
+\item Aprender a calcular la ganancia de los distintos tipos de Amplificadores.
+\item Conocer los distintos tipos de Amplificadores Operacionales.
+\end{itemize}
+
+\subsection*{Marco teórico}
+\textbf{Amplificadores Operacionales}\\
+Un amplificador operacional (A.O. también op-amp), es un amplificador de alta ganancia directamente acoplado, que en general se alimenta con fuentes positivas y negativas, lo cual permite que obtenga excursiones tanto por arriba como por debajo de masa o punto de referencia que se considere. Se caracteriza especialmente por que su respuesta en: frecuencia, cambio de fase y alta ganancia que se determina por la realimentación introducida externamente. Por su concepción, presenta una alta impedancia (Z) de entrada y muy baja de salida.\\
+A continuación el la Figura \refer{1} se muestra el modelo ideal del Amplificadores Operacionales:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{Pictures/Amplificadores Operacionales.png}
+\caption{Amp Op}
+\label{1}
+\end{figure}
+\\
+En la figura, se observan dos patillas de alimentación bipolar ($+Vs$ y $-Vs$), una entrada no inversora ($+V$), una entrada inversora ($-V$) y una de salida ($Vout$), algunos como el LM386, disponen de una patilla de bypass. El amplificador sólo responde a la diferencia de tensión entre los dos terminales de entrada, no a su potencial común. Es decir, la misión del A.O: es amplificar la diferencia de tensión entre las dos señales de entrada, respecto de masa.\\
+
+
+\textbf{Aplicaciones  de  los  OpAmps:}\\
+Además  de  amplificar  una  señal  (o  en general,  llevar  a  un  intervalo  adecuado  para  procesamiento  y  análisis),  los  Op-amps tienen muchos otros usos:\\
+\begin{itemize}
+\item Acondicionamiento  de  señales.
+\item Acoplamiento  de  impedancias.
+\item Circuitos osciladores, generadores de pulsos y de formas de onda
+\item Procesamiento    analógico    de    señales:    comparadores,    sumadores,    integradores,   derivadores,   elementos   de   retardo,   cambios   de   fase,   rectificadores, etc.
+\item Procesamiento  lógico  de  señales:  en  ciertas  aplicaciones  se  obtiene el mismo  efecto  de  las  compuertas  lógicas  digitales,  entregando  ya  sea  un valor de voltaje cero (falso) o de saturación (verdadero o "uno logico")
+\item Simulación analógica de sistemas dinámicos; ventajas de mayor velocidad y mayor resolución que con circuitos digitales, entre otras.
+\end{itemize}\\
+
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\section{Formulario}
+
+
+Inversor:
+\begin{equation}
+ V_o=\frac{R_f}{R_1}
+\end{equation}
+
+No Inversor:
+
+
+\begin{equation}
+ \vartriangle=1+\frac{R_f}{R_1}
+\end{equation}
+\begin{equation}
+ V_o=(1+\frac{R_f}{R_1})E_i
+\end{equation}
+
+Sumador:
+
+
+\begin{equation}
+ \vartriangle=(V_1\frac{R_f}{R_1}+V_2\frac{R_f}{R_2}+V_3\frac{R_f}{R_3})
+\end{equation}
+
+Restador:
+
+
+\begin{equation}
+ V_o=(1+\frac{R_f}{R_1})(\frac{R_x}{R_2+R_x}*V_2-\frac{R_f}{R_1+R_f}*V_1)
+\end{equation}
+
+Restador-Sumador:
+
+
+\begin{equation}
+ V_o=3V_1+2V_2-2V_2
+\end{equation}
+
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+\newpage
+\section{Desarrollo}
+Los siguientes circuitos esquematicos, estan compuetos por medio del programador llamado OrCad. 
+\subsection{Amplificador Operacional Inversor}
+El circuito comúnmente más utilizado es el circuito de ganancia constante. El amplificador inversor amplifica e invierte una señal 180º, es decir, el valor de la tensión de salida está en oposición de fase con la de entrada y su valor se obtiene al multiplicar la tensión de la entrada por una ganancia fija constante, establecida por la relación entre $R_2$ y $R_1$, resultando invertida esta señal (desfase).\\
+
+Para este A.O. se utilizado el siguiente circuito:\\
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{Pictures/INVERSORe.png}
+\caption{INV.}
+\label{2}
+\end{figure}
+\\
+Donde obtenemos con ayuda del simulador las ondas generadas por la entrada y la salida, lo cual se podra observar en la figura 3.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/INVERSORs.png}
+\caption{INVs}
+\label{3}
+\end{figure}
+\\
+
+\footnote{Universidad de la Zona Metropolitana de Guadalajara}
+
+\newpage
+Una vez contando con el esquematico y la simulación, podemos deducir diversos datos los cuales se piden y se mostraran a continuación.\\
+
+Comenzamos con valor de nuestro $V_i$=250$mV$, el cual ya simulado es igual a $247.4mV$, a continuación se muestra una tabla donde podemos observar la comparación de los resultados.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Magnitud & Teórico estimado & Simulación\\
+\hline \hline
+$V_i$ & $250mV$ & $247.38mV$\\ \hline
+$V_o$ & $550mV$ & $526.39mV$\\ \hline
+$Acl$ & $2.2$ & 2.2\\ \hline
+\end{tabular}
+\caption{Resultados Inversor.}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+\\
+Preguntas a resolver:\\
+¿Son iguales los resultados para la simulación y los calculos?\\
+No, ya que siempre varia un poco el valor simulado de algunos componentes, lo cual afecta el producto que buscamos en la simulación, e incluso pasa lo mismo al resolver esto fisicamente ya que el valor de los componentes fisicos no es exacto.\\
+¿El error(porcentaje) encontrado en la simulación y en las mediciones con respecto a los cálculos teóricos se encuentra dentro de la tolerancia dada para el curso?
+Si, esto debido a que la variación no es muy alta.\\
+¿Encontró alguna relaciónentre los resultados y la hipótesis propuesta en las consideraciones teóricas de este proyecto?\\
+Si, la hipótesis nos contemplaba una confiabilidad del 97\textdiscount, el cual no se ha quebrantado.\\
+¿En qué forma afecta al funcionamiento del Op Amp la frecuencia de la señal de entrada?\\
+El voltaje de salida varía con polaridad opuesta al voltaje de entrada.\\
+¿Qué sucedería si el Op Amp utilizado se polariza con 12V en lugar de usar 15V?\\
+Nada ya que esta dentro del rango de voltaje para que el Op Amp pueda polarizarse.\\
+¿Se logró comprobrar la hipótesis propuesta para este proyecto?\\
+Si.
+
+
+
+
+\footnote{Universidad de la Zona MEtropolitana de Guadalajara}
+
+\newpage
+\subsection{Amplificador Operacional No Inversor}
+Problema a resolver:\\
+¿Comó se obtiene una ganancia en voltaje aplicado un amplificador operacional no inversor?\\
+La formula correcta para sacar la ganancia es la que se presenta acontinuación:
+\begin{equation}
+ \vartriangle=1+\frac{R_f}{R_1}
+\end{equation}
+
+Enseguida de resolver el problema principal, nos queda el proporcionar como se muestra el esquematico de este, y por consiguiente el como se observa al simular.\\
+Lo cual se muestra en las Figuras 4 y 5.\\
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/NOINVERSORe.png}
+\caption{NOINVe}
+\label{4}
+\end{figure}
+\\
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/NOINVERSORs.png}
+\caption{NOINVs}
+\label{5}
+\end{figure}
+\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+ 
+\newpage
+Una vez contando con esto, nos proporciona el resolver la siguiente tabla: 
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Valor & $V$ & $V_o$ & \vartriangle\\
+\hline \hline
+Calculado & $250mV$ & $800mV$ & 3.2\\ \hline
+Simulado & $550mV$ & $79.739mV$ & 3.2\\ \hline
+\end{tabular}
+\caption{Resultados No Inversor.}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+\\
+Preguntas a resolver:\\
+¿Son iguales los resultados obtenidos para la simulación y medición?\\
+Sí, ya que como se dijo anteriormente los volores de los componentes tanto de la simulación a los fisicos cuentan con una pequeña variación.\\
+¿El error(porcentaje) encontrado en la simulación y en las mediciones con respecto a los cálculos teóricos se encuentra dentro de la tolerancia dada para el curso?
+Si, esto debido a que la variación no es muy alta.\\
+¿Encuentra alguna relación entre los resultados obtenidos y las lineas de acción propuestas en las consideraciones teóricas de este proyecto?\\
+Sí, ya que cumple a la perfección con lo establecido.\\
+¿En qué forma afecta al funcionamiento del Op Amp la frecuencia de la señal de entrada?\\
+En el modo amplificador no inversor, el voltaje de salida varía con la misma polaridad que el voltaje de entrada.\\
+¿Qué sucedería si el Op Amp utilizado se polariza con 12V en lugar de usar 15V?\\
+Nada ya que esta dentro del rango de voltaje para que el Op Amp pueda polarizarse.\\
+¿Se logró comprobrar la hipótesis propuesta para este proyecto?\\
+Sí, debido a que se logro cumplir con el rango de error.
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\subsection{Sumador}
+En este caso la primera cosa que nos pide resolver o dar a conocer es el proporcionar, como se ve las ondas generadas por el circuito representado en la Figura 6. En este caso se necesita mucho de a investigación externa, debido a la gran variación en el momento de los resultados, esto debido a que se pueden presentar errores esquematicos,pero a pesar de esto, se puede lograr.
+Una vez logrado en la Figura 7 podemos observar como luce aparentemente ya simulada.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/SUMADORe.png}
+\caption{Sumador 1}
+\label{6}
+\end{figure}
+\\
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/SUMADORs.png}
+\caption{Sumador 2}
+\label{7}
+\end{figure}
+\\
+
+En este caso se pudo observar de una manera más notoria que existia una ganancia más relevante, pero para esto cabe resaltar que entre más exista una variación entre la $R_f$ y las demas resistencias mayor sera la ganancia.
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+
+RESULTADOS:
+ \begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Valor & $V_1$ & \vartriangle\\
+\hline \hline
+Calculado & $250mV$ & $8.33V$\\ \hline
+Simulado & $247.38mV$ & $8.24V$\\ \hline
+\end{tabular}
+\caption{Resultados Sumador.}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+\\
+ 
+Preguntas a resolver:\\
+Explique brevemente en qué consiste la función que realiza un circuito sumador con Op Amp.\\
+Aplicación en la cual la salida es de polaridad opuesta a la suma de las señales de entrada.\\
+¿Qué sucederá con el voltaje de salida si se cambia $R_f$ por una resistencia de menor valor?\\
+La principal afectada sera la ganancia ya que esto hara que la ganancia sea menor a la obtenida principalmente.\\
+¿En el circuito son iguales en magnitud los voltajes que se tienen en cada resistencia del divisor de voltaje con carga que sin carga(la carga es el sumado)?\\
+Sí\\
+¿Se logró comprobar la ecuación que describe el comportamiento de un sumador con Op Amp?\\
+Sí\\
+¿Se cumpliría con la igualdad dada por la ecuación del sumador con Op Amp para cualquier número de entradas?\\
+Por supuesto, debido a que simplemente se le agregara a la ecuación los nuevos datos, esto siempre siguiendo la base o el sentido de la ecuación.\\
+¿Se logró comprobar la hipótesis propuesta para este proyecto?\\
+Sí, se logro obtener la suma de dos señales lo cual era uno de los objetivos de este circuito.\\
+
+ 
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\subsection{Restador}
+En el caso del restador el circuito esquematico luce como a continuación:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/RESTADORe.png}
+\caption{Restador 1}
+\label{8}
+\end{figure}
+\\
+En el cual nos pide que resolvamos la formula que se presenta enseguida:
+
+\begin{equation}
+ V_o=(1+\frac{R_f}{R_1})(\frac{R_x}{R_2+R_x}*V_2-\frac{R_f}{R_1+R_f}*V_1)
+\end{equation}
+Al resolver con los datos mostrados en la formula anterior logramos obtener que $V_o$=$80.64mV$ en el cual al simularla se obtuvo que este era igual a $76.825mV$.
+
+A continuación se muestra los resultados representados al simularse:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{Pictures/RESTADORs.png}
+\caption{Restador 2}
+\label{9}
+\end{figure}
+\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+
+RESULTADOS:
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Valor & $V_1$ & $V_2$ & \vartriangle\\
+\hline \hline
+Calculado & $250mV$ & $250mV$ & 1.75V\\ \hline
+Simulado & $247.38mV$ & $247.38mV$ & 1.75V\\ \hline
+\end{tabular}
+\caption{Resultados Restador.}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+\\
+
+Prefuntas a resolver:\\
+
+Explique brebemente en que consiste la función que realiza un circuito restador con Op Amp.\\
+Este amplificador usa ambas entradas invertida y no invertida con una ganancia de uno, para producir una salida igual a la diferencia entre las entradas.\\
+¿Qué sucederá con el voltaje de salida si se cambia $R_f$ por una resistencia de menor valor?\\
+La principal afectada sera la ganancia ya que esto hara que la ganancia sea menor a la obtenida principalmente.\\
+¿Se logró comprobar la ecuación que describe el comportamiento de un restador con Op Amp?\\
+Sí\\
+¿Se logró comprobar la hipótesis propuesta para este proyecto?\\
+Sí, se logro comprobar la hipótesis mostrada al inicio.\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\subsection{Sumador-Restador}
+El problema a resolver de este apartado es el siguiete; ¿Comó se puede estructurar un circuito que realiza la operación de suma y resta de varias señales o voltajes dados?
+
+Y la mejor manera de resolver el problema es presentar el esquematico del circuito, representando el funcionamiento y acomodo de esté. Así que por lo cual se muestra a continuación el esquematico correcto:\\
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{Pictures/S-Re.png}
+\caption{SR 1}
+\label{10}
+\end{figure}
+\\
+
+Por consiguiente lo siguiente que se pide es resolver la siguiente formula:
+\begin{equation}
+ V_o=3V_1+2V_2-2V_2=1.75V
+\end{equation}
+
+Y para terminar este Op Amp solo faltaria el simulador que acontinuación se presenta:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{Pictures/S-Rs.png}
+\caption{SR 2}
+\label{11}
+\end{figure}
+\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\subsection{DAC y ADC}
+Y para concluir solo faltaria el ADC Y DAC. Los cuales se mostroran a continuación.\\
+Para comenzar un conversor de señal digital a analógica o conversor digital analógico, CDA o DAC, es un dispositivo para convertir señales digitales con datos binarios en señales de corriente o de tensión analógica.\\
+
+El circuito  del ADC es algo simple, ya que consta de pocos componentes e incluso se les muestra a continuación:
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{Pictures/ADC.png}
+\caption{ADC}
+\label{12}
+\end{figure}
+\\
+
+Para resolver se resolvio una pequeña tabla de 1 y 0, la cual representa las cuatro salidas del circuito, salidas que se controlan con ayuda de interruptores.
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+La tabla se muestra a continuación:
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+A B C D & Voltaje \\
+\hline \hline
+0 0 0 0 & 0V \\ \hline
+0 0 0 1 & 1.69V \\ \hline
+0 0 1 0 & 2.51V \\ \hline
+0 0 1 1 & 3.003V \\ \hline
+0 1 0 0 & 3.33V \\ \hline
+0 1 0 1 & 3.57V \\ \hline
+0 1 1 0 & 3.75V \\ \hline
+0 1 1 1 & 3.88V \\ \hline
+1 0 0 0 & 4.16V \\ \hline
+1 0 0 1 & 4.23V \\ \hline
+1 0 1 0 & 4.28V \\ \hline
+1 0 1 1 & 4.33V \\ \hline
+1 1 0 0 & 4.37V \\ \hline
+1 1 0 1 & 4.41V \\ \hline
+1 1 1 0 & 4.44V \\ \hline
+1 1 1 1 & 4.47V \\ \hline
+\end{tabular}
+\caption{ADC}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+
+Y para terminar solo faltaria el DAC el cual el circuito es un poco más complejo, y basicamente su funsión es la contraria al ADC.
+
+
+El circuito se muestra a continuación y se resuelve con una sencilla tabla, la cual funciona a base de voltaje, ya que dependiendo en voltaje, de eso dependera cuantos leds prenden, con lo que los 0 representan apagado y los 1 encendido.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.55]{Pictures/DAC.png}
+\caption{DAC}
+\label{13}
+\end{figure}
+\\
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 & 210V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 & 200V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 & 190V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 & 180V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 & 160V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 & 150V \\ \hline
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 & 140V \\ \hline
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 & 120V \\ \hline
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 & 110V \\ \hline
+0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 & 100V \\ \hline
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 & 80V \\ \hline
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 & 70V \\ \hline
+0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 & 60V \\ \hline
+0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 & 50V \\ \hline
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 & 30V \\ \hline
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 & 20V \\ \hline
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 & 20V \\ \hline
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 & 10V \\ \hline
+\end{tabular}
+\caption{DAC}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\section{Conclusiones}
+
+Luis Osvaldo Cervantes Mart\'inez.\\
+En esta practica se nos complico un poco ya que fue necesario investigar un poco, debido a que para hacer funcionar las simulaciones se necesitaba polarizarse, cosa que no se explicaba y tampoco conocia como hacerlo. Tambien una de las cosas más importantes para mi es el distinguir el funcionamiento de cada manera en la que se puede utilizar un amplificador operacional y la manera de resolver dichos circuitos.\\\\
+
+Ulises Isaac Reyes Alvarez.\\
+Aprendimos a desarrollar circuitos en una aplicación que es Orcad haciendo circuitos de potencia para determinar amplitudes pico a pico, ganancias y tablas de verdad para determinar los voltajes de salida y entrada. Determinando señales en los amplificadores operacionales.
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\section{Firmas}
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.40]{Pictures/ULISES.png}
+\caption{Ulises}
+\label{11}
+\end{figure}
+\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+
+\newpage
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.40]{Pictures/OSVALDO.png}
+\caption{Osvaldo}
+\label{12}
+\end{figure}
+\\
+
+\footnote{Universidad Politécnica de la Zona Metropolitana de Guadalajara}
+\end{document}
